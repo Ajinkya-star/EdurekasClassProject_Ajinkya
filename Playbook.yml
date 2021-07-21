@@ -8,9 +8,9 @@
   - name: start docker
     service: name=docker state=started
   - name: pull the image
-    command: docker pull devopsedu/webapp
+    command: docker pull sonal04/addressbook
   - name: run the image
-    command:  docker run -itd --name edurekaweb -P devopsedu/webapp
+    command:  docker run -itd --name edurekaweb -P sonal04/addressbook
     notify: restart docker
   handlers:
   - name: restart docker
