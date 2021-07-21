@@ -10,7 +10,7 @@
   - name: pull the image
     command: docker pull devopsedu/webapp
   - name: run the image
-    command:  docker run -itd --name edurekaweb -P 8888:80 devopsedu/webapp
+    command:  docker run -itd --name edurekaweb devopsedu/webapp
     notify: restart docker
   handlers:
   - name: restart docker
