@@ -8,7 +8,7 @@
   - name: start docker
     service: name=docker state=started
   - name: pull the image
-    command: docker pull edurekaweb 
+    command: docker pull edurekaweb:latest
   - name: run the image
     command:  docker run -itd --name edurekaweb -P 7989:80 devopsedu/webapp
     notify: restart docker
