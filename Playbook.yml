@@ -1,1 +1,15 @@
-HI
+---
+- hosts: webservers
+  become: true
+  become_user: root
+  tasks:
+  - name: install docker
+    yum: name=docker state=present
+  - name: start docker
+    service: name=docker state=started
+  - name: run the image
+    command:  docker run -itd --name edurekaweb -P 7989:80 devopsedu/webapp
+    notify: restart docker
+  handlers:
+  - name: restart docker
+    service: name=docker state=restarted
